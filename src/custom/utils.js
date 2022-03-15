@@ -1,6 +1,6 @@
 import { ANIMALTYPE, ANIMALS } from './data';
 
-// the Knuth shuffle algorithm
+// shuffle algorithm
 export function shuffle(array) {
   let currentIndex = array.length;
   let temporaryValue;

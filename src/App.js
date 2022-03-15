@@ -9,10 +9,10 @@ import Header from './components/Header';
 import DropArea from './components/DropArea';
 
 
-const GAME_DURATION = 1000 * 30; // 30 seconds
+const GAME_DURATION = 1000 * 60; // 60 second timer
 
 const initialState = {
-  // we initialize the state by populating the bench with a shuffled collection of heroes
+  // code for the shuffling of animals
   bench: shuffle(ANIMALS),
   [ANIMALTYPE.OVIPAROUS]: [],
   [ANIMALTYPE.MAMMAL]: [],

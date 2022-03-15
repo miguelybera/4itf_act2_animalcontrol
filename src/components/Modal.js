@@ -13,8 +13,9 @@ const Modal = ({ gameState, groups, startGame, timeLeft, resetGame }) => (
         <div className="content h6">
           {' '}
           {gameState === GAME_STATE.READY
-            ? `Drag and Drop the animals in the correct list of animal types, sort them alphabetically and quickly for better score...`
-            : `You scored - ${getTotalScore(groups, timeLeft)}`}
+            ? `Drag and Drop the animals in the correct list of animal types, sort them alphabetically and quickly for better score.
+            If you're done before the time ends click on "End Game"`
+            : `Final Score: ${getTotalScore(groups, timeLeft)}`}
         </div>
       </div>
       <div className="modal-footer">
