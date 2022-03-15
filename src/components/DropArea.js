@@ -8,8 +8,8 @@ const DropArea = ({ isDropDisabled, animals, id }) => (
       {provided => {
         return (
           <div className="menu animal-list" {...provided.droppableProps} ref={provided.innerRef}>
-            {animals.map(({ name }, index) => (
-              <Animal key={name} name={name} index={index} />
+            {animals.map(({ name, image }, index) => (
+              <Animal key={name} name={name} image={image} index={index} />
             ))}
             {provided.placeholder}
           </div>
@@ -19,8 +19,8 @@ const DropArea = ({ isDropDisabled, animals, id }) => (
   </div>
 );
 
-const Animal = ({ name, index }) => (
-  <Draggable key={name} draggableId={name} index={index}>
+const Animal = ({ name, index, image }) => (
+  <Draggable key={name} image={image} draggableId={name} index={index}>
     {provided => {
       return (
         <div
@@ -30,7 +30,7 @@ const Animal = ({ name, index }) => (
           {...provided.dragHandleProps}
         >
           <figure style={{ backgroundColor: 'transparent' }} className="avatar tile-icon">
-            <img src={`https://cdn4.vectorstock.com/i/1000x1000/75/33/flat-style-character-avatar-icon-vector-19367533.jpg`} alt={name} />
+            <img src={image} alt={name} />
           </figure>
           <div className="tile-content">{name}</div>
         </div>

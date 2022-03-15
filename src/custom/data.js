@@ -5,9 +5,9 @@ export const ANIMALTYPE = {
   
   export const ANIMALS = [
     {
-        name:'',
-        type: '',
-        image:''
+        name:'platypus',
+        type: 'mammal',
+        image:'https://cdn4.vectorstock.com/i/1000x1000/75/33/flat-style-character-avatar-icon-vector-19367533.jpg'
     }
   ];
   
