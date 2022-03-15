@@ -19,7 +19,7 @@ const initialState = {
   gameState: GAME_STATE.READY,
   timeLeft: 0,
 };
-// hello comment
+// hello comment 1
 class App extends React.Component {
   state = initialState;
 
