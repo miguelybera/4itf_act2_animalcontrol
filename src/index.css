@@ -18,3 +18,38 @@ footer {
   bottom: 0;
   font-size: 14px;
 }
+.modal.modal-sm .modal-container{
+  max-width: 400px;
+  background-color: #cfcfcf;
+}
+.h4{
+  text-align: center;
+}
+.modal-container .modal-footer {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.h6{
+  text-align: center;
+}
+.btn.btn-primary {
+  background: #99e889;
+  border-color: #99e889;
+  color: black;
+  font-weight: 600;
+}
+
+.modal:target .modal-overlay, .modal.active .modal-overlay {
+  background: #d6d6d6;
+  bottom: 0;
+  cursor: default;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.btn{
+  background-color: white;
+}
