@@ -16,7 +16,7 @@ const Modal = ({ gameState, startGame, resetGame }) => (
         <div className="content h6">
           {' '}
           {gameState === stateOfGame.START
-            ? `Drag and Drop the animals in the correct list of animal types, sort them alphabetically and quickly for better score.
+            ? `Drag and Drop the animals in the correct list of animal types.
             If you're done before the time ends click on "End Game"`
             : `Thanks for playing`}
         </div>

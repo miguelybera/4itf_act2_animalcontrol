@@ -1,34 +1,33 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
-
 import { animals, animalType } from './others/AnimalData';
 import { getTimeRemaining, iconMove, stateOfGame } from './others/Movement';
-
 import Modal from './components/Modal';
 import Header from './components/Header';
 import DropArea from './components/DropArea';
 
 
-const GAME_DURATION = 1000 * 60; // 60 second clock
+const gameDuration = 1000 * 60; // 60 second clock
 
 const initialState = {
-  bench: animals,
+  farm: animals,
   [animalType.oviparous]: [],
   [animalType.mammal]: [],
   gameState: stateOfGame.START,
   timeRemaining: 0,
 };
-// hello comment 1
+
+
 class App extends React.Component {
   state = initialState;
 
   startGame = () => {
-    this.currentDeadline = Date.now() + GAME_DURATION;
+    this.gameEnding = Date.now() + gameDuration;
 
     this.setState(
       {
         gameState: stateOfGame.CURRENT,
-        timeRemaining: getTimeRemaining(this.currentDeadline),
+        timeRemaining: getTimeRemaining(this.gameEnding),
       },
       this.gameLoop
     );
@@ -36,7 +35,7 @@ class App extends React.Component {
 
   gameLoop = () => {
     this.clock = setInterval(() => {
-      const timeRemaining = getTimeRemaining(this.currentDeadline);
+      const timeRemaining = getTimeRemaining(this.gameEnding);
       const endTime = timeRemaining <= 0;
       if (endTime && this.clock) {
         clearInterval(this.clock);
@@ -74,7 +73,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { gameState, timeRemaining, bench, ...groups } = this.state;
+    const { gameState, timeRemaining, farm, ...groups } = this.state;
     const isDropDisabled = gameState === stateOfGame.END;
 
     return (
@@ -99,7 +98,7 @@ class App extends React.Component {
                   animals={this.state[animalType.oviparous]}
                   isDropDisabled={isDropDisabled}
                 />
-                <DropArea id="bench" animals={bench} isDropDisabled={isDropDisabled} />
+                <DropArea id="farm" animals={farm} isDropDisabled={isDropDisabled} />
                 <DropArea
                   id={animalType.mammal}
                   animals={this.state[animalType.mammal]}
