@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { stateOfGame, secondsLeft } from '../others/Movement';
+import { stateOfGame } from '../others/Movement';
 
 const Header = ({gameState, endGame }) => (
   <header className="navbar">
