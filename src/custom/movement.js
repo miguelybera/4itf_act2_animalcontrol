@@ -2,7 +2,7 @@
 
 
 // method to handle to the animal cards movement
-export const move = (state, source, destination) => {
+export const iconMove = (state, source, destination) => {
   const srcListClone = [...state[source.droppableId]];
   const destListClone =
     source.droppableId === destination.droppableId

@@ -2,7 +2,7 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { ANIMALS, ANIMALTYPE } from './custom/data';
-import { getTimeLeft, move, GAME_STATE } from './custom/utils';
+import { getTimeLeft, iconMove, GAME_STATE } from './custom/movement';
 
 import Modal from './components/Modal';
 import Header from './components/Header';
@@ -12,7 +12,6 @@ import DropArea from './components/DropArea';
 const GAME_DURATION = 1000 * 60; // 60 second timer
 
 const initialState = {
-  // code for the shuffling of animals
   bench: ANIMALS,
   [ANIMALTYPE.OVIPAROUS]: [],
   [ANIMALTYPE.MAMMAL]: [],
@@ -70,7 +69,7 @@ class App extends React.Component {
     }
 
     this.setState(state => {
-      return move(state, source, destination);
+      return iconMove(state, source, destination);
     });
   };
 
