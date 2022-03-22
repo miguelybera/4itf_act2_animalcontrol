@@ -14,7 +14,7 @@ const initialState = {
   [animalType.oviparous]: [],
   [animalType.mammal]: [],
   gameState: stateOfGame.START,
-  timeRemaining: 0,
+  //timeRemaining: 0,
 };
 
 
@@ -24,18 +24,18 @@ class App extends React.Component {
 
   startGame = () => {
     // this declares when the game will end the current date adding the 60 second clock 
-    this.gameEnding = Date.now() + gameDuration;
+    //this.gameEnding = Date.now() + gameDuration;
 
     this.setState(
       {
         gameState: stateOfGame.CURRENT,
-        timeRemaining: getTimeRemaining(this.gameEnding),
+        //timeRemaining: getTimeRemaining(this.gameEnding),
       },
-      this.gameLoop
+      //this.gameLoop
     );
   };
 
-  gameLoop = () => {
+ /* gameLoop = () => {
     this.clock = setInterval(() => {
       const timeRemaining = getTimeRemaining(this.gameEnding);
       const endTime = timeRemaining <= 0;
@@ -49,12 +49,13 @@ class App extends React.Component {
       });
     }, 1000);
   };
-
+*/
   endGame = () => {
+    /*
     if (this.clock) {
       clearInterval(this.clock);
     }
-
+*/
     this.setState({
       gameState: stateOfGame.END,
     });
@@ -86,7 +87,9 @@ class App extends React.Component {
           <Modal
             startGame={this.startGame}
             resetGame={this.resetGame}
+            /*
             timeRemaining={timeRemaining}
+            */
             gameState={gameState}
             groups={groups}
           />
@@ -116,9 +119,10 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
+    /*
     if (this.clock) {
       clearInterval(this.clock);
-    }
+    }*/
   }
 }
 

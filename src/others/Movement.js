@@ -1,5 +1,5 @@
 
-// method to handle to the animal cards movement
+// This is method is needed for the animals to stay on their respective dropped area. Without this, they will return to the farm area
 export const iconMove = (state, source, destination) => {
   const srcListClone = [...state[source.droppableId]];
   const destListClone =
