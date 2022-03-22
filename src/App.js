@@ -19,9 +19,11 @@ const initialState = {
 
 
 class App extends React.Component {
+  //declaring state as the values of the initial state variable above
   state = initialState;
 
   startGame = () => {
+    // this declares when the game will end the current date adding the 60 second clock 
     this.gameEnding = Date.now() + gameDuration;
 
     this.setState(
@@ -71,6 +73,7 @@ class App extends React.Component {
       return iconMove(state, source, destination);
     });
   };
+
 
   render() {
     const { gameState, timeRemaining, farm, ...groups } = this.state;
