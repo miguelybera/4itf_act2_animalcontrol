@@ -1,22 +1,22 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import { ANIMALS, ANIMALTYPE } from './custom/data';
-import { getTimeLeft, iconMove, GAME_STATE } from './custom/movement';
+import { animals, animalType } from './others/AnimalData';
+import { getTimeRemaining, iconMove, stateOfGame } from './others/Movement';
 
 import Modal from './components/Modal';
 import Header from './components/Header';
 import DropArea from './components/DropArea';
 
 
-const GAME_DURATION = 1000 * 60; // 60 second timer
+const GAME_DURATION = 1000 * 60; // 60 second clock
 
 const initialState = {
-  bench: ANIMALS,
-  [ANIMALTYPE.OVIPAROUS]: [],
-  [ANIMALTYPE.MAMMAL]: [],
-  gameState: GAME_STATE.READY,
-  timeLeft: 0,
+  bench: animals,
+  [animalType.oviparous]: [],
+  [animalType.mammal]: [],
+  gameState: stateOfGame.START,
+  timeRemaining: 0,
 };
 // hello comment 1
 class App extends React.Component {
@@ -27,35 +27,35 @@ class App extends React.Component {
 
     this.setState(
       {
-        gameState: GAME_STATE.PLAYING,
-        timeLeft: getTimeLeft(this.currentDeadline),
+        gameState: stateOfGame.CURRENT,
+        timeRemaining: getTimeRemaining(this.currentDeadline),
       },
       this.gameLoop
     );
   };
 
   gameLoop = () => {
-    this.timer = setInterval(() => {
-      const timeLeft = getTimeLeft(this.currentDeadline);
-      const isTimeout = timeLeft <= 0;
-      if (isTimeout && this.timer) {
-        clearInterval(this.timer);
+    this.clock = setInterval(() => {
+      const timeRemaining = getTimeRemaining(this.currentDeadline);
+      const endTime = timeRemaining <= 0;
+      if (endTime && this.clock) {
+        clearInterval(this.clock);
       }
 
       this.setState({
-        timeLeft: isTimeout ? 0 : timeLeft,
-        ...(isTimeout ? { gameState: GAME_STATE.DONE } : {}),
+        timeRemaining: endTime ? 0 : timeRemaining,
+        ...(endTime ? { gameState: stateOfGame.END } : {}),
       });
     }, 1000);
   };
 
   endGame = () => {
-    if (this.timer) {
-      clearInterval(this.timer);
+    if (this.clock) {
+      clearInterval(this.clock);
     }
 
     this.setState({
-      gameState: GAME_STATE.DONE,
+      gameState: stateOfGame.END,
     });
   };
 
@@ -74,35 +74,35 @@ class App extends React.Component {
   };
 
   render() {
-    const { gameState, timeLeft, bench, ...groups } = this.state;
-    const isDropDisabled = gameState === GAME_STATE.DONE;
+    const { gameState, timeRemaining, bench, ...groups } = this.state;
+    const isDropDisabled = gameState === stateOfGame.END;
 
     return (
       <>
-        <Header gameState={gameState} timeLeft={timeLeft} endGame={this.endGame} />
-        {this.state.gameState !== GAME_STATE.PLAYING && (
+        <Header gameState={gameState} timeRemaining={timeRemaining} endGame={this.endGame} />
+        {this.state.gameState !== stateOfGame.CURRENT && (
           <Modal
             startGame={this.startGame}
             resetGame={this.resetGame}
-            timeLeft={timeLeft}
+            timeRemaining={timeRemaining}
             gameState={gameState}
             groups={groups}
           />
         )}
-        {(this.state.gameState === GAME_STATE.PLAYING ||
-          this.state.gameState === GAME_STATE.DONE) && (
+        {(this.state.gameState === stateOfGame.CURRENT ||
+          this.state.gameState === stateOfGame.END) && (
           <DragDropContext onDragEnd={this.onDragEnd}>
             <div className="container">
               <div className="columns">
                 <DropArea
-                  id={ANIMALTYPE.OVIPAROUS}
-                  animals={this.state[ANIMALTYPE.OVIPAROUS]}
+                  id={animalType.oviparous}
+                  animals={this.state[animalType.oviparous]}
                   isDropDisabled={isDropDisabled}
                 />
                 <DropArea id="bench" animals={bench} isDropDisabled={isDropDisabled} />
                 <DropArea
-                  id={ANIMALTYPE.MAMMAL}
-                  animals={this.state[ANIMALTYPE.MAMMAL]}
+                  id={animalType.mammal}
+                  animals={this.state[animalType.mammal]}
                   isDropDisabled={isDropDisabled}
                 />
               </div>
@@ -114,8 +114,8 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.timer) {
-      clearInterval(this.timer);
+    if (this.clock) {
+      clearInterval(this.clock);
     }
   }
 }

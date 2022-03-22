@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { GAME_STATE, getSeconds } from '../custom/movement';
+import { stateOfGame, secondsLeft } from '../others/Movement';
 
-const Header = ({ timeLeft, gameState, endGame }) => (
+const Header = ({ timeRemaining, gameState, endGame }) => (
   <header className="navbar">
-    {gameState === GAME_STATE.PLAYING && (
+    {gameState === stateOfGame.CURRENT && (
       <>
-        <section className="navbar-center text-error">{getSeconds(timeLeft)} Seconds Left</section>
+        <section className="navbar-center text-error">{secondsLeft(timeRemaining)} Seconds Left</section>
         <section className="navbar-center">
           <button className="btn btn-default" onClick={endGame}>
             End Game

@@ -22,15 +22,15 @@ export const iconMove = (state, source, destination) => {
   };
 };
 
-// method to get time left
-export const getTimeLeft = deadline => deadline - Date.now();
+// getting the remaining time
+export const getTimeRemaining = deadline => deadline - Date.now();
 
-// method to get time left in seconds
-export const getSeconds = timeLeft => Math.floor(timeLeft / 1000);
+// to get the remaining time in seconds  
+export const secondsLeft = timeRemaining => Math.floor(timeRemaining / 1000);
 
-// enums for representing the game state
-export const GAME_STATE = {
-  READY: 'ready',
-  PLAYING: 'playing',
-  DONE: 'done',
+// State of the game
+export const stateOfGame = {
+  START: 'ready',
+  CURRENT: 'current',
+  END: 'end',
 };

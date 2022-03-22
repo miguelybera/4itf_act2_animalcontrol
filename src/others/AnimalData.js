@@ -1,9 +1,9 @@
-export const ANIMALTYPE = {
-    MAMMAL: 'mammal',
-    OVIPAROUS: 'oviparous',
+export const animalType = {
+    mammal: 'mammal',
+    oviparous: 'oviparous',
   };
   
-  export const ANIMALS = [
+  export const animals = [
     {
         name:'Bears',
         type: 'mammal',
