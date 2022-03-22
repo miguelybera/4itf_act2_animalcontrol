@@ -2,7 +2,7 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { ANIMALS, ANIMALTYPE } from './custom/data';
-import { shuffle, getTimeLeft, move, GAME_STATE } from './custom/utils';
+import { getTimeLeft, move, GAME_STATE } from './custom/utils';
 
 import Modal from './components/Modal';
 import Header from './components/Header';
@@ -13,7 +13,7 @@ const GAME_DURATION = 1000 * 60; // 60 second timer
 
 const initialState = {
   // code for the shuffling of animals
-  bench: shuffle(ANIMALS),
+  bench: ANIMALS,
   [ANIMALTYPE.OVIPAROUS]: [],
   [ANIMALTYPE.MAMMAL]: [],
   gameState: GAME_STATE.READY,
