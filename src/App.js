@@ -71,6 +71,12 @@ class App extends React.Component {
 
     this.setState(state => {
       return iconMove(state, source, destination);
+    }, ()=>{
+      if(this.state.farm.length === 0){
+        this.setState({
+          gameState: stateOfGame.END,
+        });
+      }
     });
   };
 
