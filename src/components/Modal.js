@@ -9,7 +9,7 @@ const Modal = ({ gameState, startGame, resetGame }) => (
       <div className="modal-header">
         
         <div className="modal-title h4">{gameState === stateOfGame.START
-            ? `Line Up the Animals in their Proper Place`
+            ? `Animal Control`
             : `Game over`}</div>
       </div>
       <div className="modal-body">
@@ -17,7 +17,8 @@ const Modal = ({ gameState, startGame, resetGame }) => (
           {' '}
           {gameState === stateOfGame.START
             ? `Drag and Drop the animals in the correct list of animal types.
-            If you're done before the time ends click on "End Game"`
+            The Game will end once there are no animals in the Farm.
+            Else, click "End Game"`
             : `Thanks for playing`}
         </div>
       </div>
