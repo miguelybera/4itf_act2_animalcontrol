@@ -1,7 +1,9 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { animals, animalType } from './others/AnimalData';
-import { getTimeRemaining, iconMove, stateOfGame } from './others/Movement';
+import { iconMove } from './others/Movement';
+import { getTimeRemaining } from './others/Time';
+import { stateOfGame } from './others/State';
 import Modal from './components/Modal';
 import Header from './components/Header';
 import DropArea from './components/DropArea';

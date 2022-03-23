@@ -1,11 +1,14 @@
-
+let destListClone
 // method to handle to the animal cards movement
 export const iconMove = (state, source, destination) => {
+  // srcListClone contains all the info of state plus the droppableId of the source variable
   const srcListClone = [...state[source.droppableId]];
-  const destListClone =
-    source.droppableId === destination.droppableId
-      ? srcListClone
-      : [...state[destination.droppableId]];
+  if(source.droppableId === destination.droppableId){
+     destListClone =srcListClone
+  }else{
+    destListClone = [...state[destination.droppableId]];  
+  }
+      
 
   const [movedElement] = srcListClone.splice(source.index, 1);
   destListClone.splice(destination.index, 0, movedElement);
@@ -20,15 +23,6 @@ export const iconMove = (state, source, destination) => {
   };
 };
 
-// getting the remaining time
-export const getTimeRemaining = deadline => deadline - Date.now();
 
-// to get the remaining time in seconds  
-export const secondsLeft = timeRemaining => Math.floor(timeRemaining / 1000);
 
-// State of the game
-export const stateOfGame = {
-  START: 'ready',
-  CURRENT: 'current',
-  END: 'end',
-};
+

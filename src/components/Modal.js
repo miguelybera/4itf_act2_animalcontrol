@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { stateOfGame } from '../others/Movement';
+import { stateOfGame } from '../others/State';
 
 const Modal = ({ gameState, startGame, resetGame }) => (
   <div className="modal modal-sm active">
