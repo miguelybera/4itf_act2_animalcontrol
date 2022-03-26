@@ -9,7 +9,7 @@ const Header = ({ timeRemaining, gameState, endGame }) => (
       <>
         <section className="navbar-center text-error">{secondsLeft(timeRemaining)} Seconds Left</section>
         <section className="navbar-center">
-          <button className="btn btn-default" onClick={endGame}>
+          <button className="btn btn-error" onClick={endGame}>
             End Game
           </button>
         </section>

@@ -23,10 +23,11 @@ footer {
 }
 .modal.modal-sm .modal-container{
   max-width: 400px;
-  background-color: #cfcfcf;
+  background-color: #65a638;
 }
-.h4{
+.h2{
   text-align: center;
+  color: #faf9aa;
 }
 .modal-container .modal-footer {
   padding: 0.8rem;
@@ -35,6 +36,7 @@ footer {
 
 .h6{
   text-align: center;
+  color: #dedede;
 }
 .btn.btn-primary {
   background: #99e889;
@@ -44,7 +46,7 @@ footer {
 }
 
 .modal:target .modal-overlay, .modal.active .modal-overlay {
-  background: #d6d6d6;
+  background: #bfbe7a;
   bottom: 0;
   cursor: default;
   display: block;

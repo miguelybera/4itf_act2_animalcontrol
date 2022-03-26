@@ -8,7 +8,7 @@ const Modal = ({ gameState, startGame, resetGame }) => (
     <div className="modal-container">
       <div className="modal-header">
         
-        <div className="modal-title h4">{gameState === stateOfGame.START
+        <div className="modal-title h2">{gameState === stateOfGame.START
             ? `Animal Control`
             : `Game over`}</div>
       </div>
@@ -24,7 +24,7 @@ const Modal = ({ gameState, startGame, resetGame }) => (
       </div>
       <div className="modal-footer">
         <button
-          className="btn btn-primary"
+          className="btn btn-success"
           onClick={gameState === stateOfGame.START ? startGame : resetGame}
         >
           {gameState === stateOfGame.START ? 'Click to Start' : 'Reset'}
