@@ -7,14 +7,20 @@ import { stateOfGame } from './others/State';
 import Modal from './components/Modal';
 import Header from './components/Header';
 import DropArea from './components/DropArea';
+import './index.css';
+import './App.css'
 
 
-const gameDuration = 1000 * 60; // 60 second clock
+const gameDuration = 1000 * 10000; // 60 second clock
 
 const initialState = {
   farm: animals,
-  [animalType.oviparous]: [],
-  [animalType.mammal]: [],
+  [animalType.amphibians]: [],
+  [animalType.invertibrates]: [],
+  [animalType.mammals]: [],
+  [animalType.fish]: [],
+  [animalType.birds]: [],
+  [animalType.reptiles]: [],
   gameState: stateOfGame.START,
   timeRemaining: 0,
 };
@@ -103,20 +109,47 @@ class App extends React.Component {
           this.state.gameState === stateOfGame.END) && (
           <DragDropContext onDragEnd={this.onDragEnd}>
             <div className="container">
-              <div className="columns">
+            <div className="columns">
+            <DropArea
+                  id={animalType.amphibians}
+                  animals={this.state[animalType.amphibians]}
+                  isDropDisabled={isDropDisabled}
+                  style={{
+                    backgroundColor: 'transparent',
+                    opacity: 0.9
+                    }}
+                />
                 <DropArea
-                  id={animalType.oviparous}
-                  animals={this.state[animalType.oviparous]}
+                  id={animalType.invertibrates}
+                  animals={this.state[animalType.invertibrates]}
                   isDropDisabled={isDropDisabled}
                 />
-                <DropArea id="farm" animals={farm} isDropDisabled={isDropDisabled} />
                 <DropArea
-                  id={animalType.mammal}
-                  animals={this.state[animalType.mammal]}
+                  id={animalType.mammals}
+                  animals={this.state[animalType.mammals]}
                   isDropDisabled={isDropDisabled}
                 />
+                <DropArea
+                  id={animalType.fish}
+                  animals={this.state[animalType.fish]}
+                  isDropDisabled={isDropDisabled}
+                />
+                <DropArea
+                  id={animalType.birds}
+                  animals={this.state[animalType.birds]}
+                  isDropDisabled={isDropDisabled}
+                />
+                <DropArea
+                  id={animalType.reptiles}
+                  animals={this.state[animalType.reptiles]}
+                  isDropDisabled={isDropDisabled}
+
+                />
+              <div className="rows">
+              <DropArea id="farm" animals={farm} isDropDisabled={isDropDisabled} />
               </div>
-            </div>
+              </div>
+              </div>
           </DragDropContext>
         )}
       </>

@@ -1,0 +1,37 @@
+.columns{
+    background-image: url("./components/zoobg.jpg");
+    padding-bottom: 500px;
+    padding-top: 50px;
+    background-position-x: center;
+    background-size: 1600px;
+    font-size: larger;
+    box-shadow: 100cm;
+    
+}
+.divider{
+    font-weight: 600;
+    font-style: oblique;
+    text-align: center;
+    text-shadow: 1ch;
+    color: black;
+    font-size: 1ch;
+
+
+}
+.menu.animal-list{
+    box-shadow: 50cm;
+    background-color: whitesmoke;
+    opacity: 0.8;
+}
+.navbar{
+    background-color: whitesmoke;
+    opacity: 0.8;
+}
+.tile-content{
+    color: black;
+    font-weight: 500;
+    opacity: 1.0;
+}
+.avatar-tile-icon{
+    opacity: 1.0;
+}

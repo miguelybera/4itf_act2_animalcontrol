@@ -1,10 +1,13 @@
 header.navbar {
   height: 40px;
   margin: 5px 20px;
+  background-color: whitesmoke;
+    opacity: 0.8;
 }
 
 div.menu .menu-item.tile.tile-centered {
   margin-top: 5px;
+  stop-opacity: initial;
 }
 
 .menu.animal-list {

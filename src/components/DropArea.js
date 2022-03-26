@@ -2,7 +2,7 @@ import React from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 const DropArea = ({ isDropDisabled, animals, id }) => (
-  <div className="column col-4">
+  <div className="column" >
     <div className="divider" data-content={id.toUpperCase()} />
     <Droppable droppableId={id} isDropDisabled={isDropDisabled}>
       {provided => {
@@ -17,6 +17,7 @@ const DropArea = ({ isDropDisabled, animals, id }) => (
       }}
     </Droppable>
   </div>
+
 );
 
 const Animal = ({ name, index, image }) => (
@@ -29,7 +30,7 @@ const Animal = ({ name, index, image }) => (
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <figure style={{ backgroundColor: 'transparent' }} className="avatar tile-icon">
+          <figure style={{ backgroundColor: 'white' }} className="avatar tile-icon">
             <img src={image} alt={name} />
           </figure>
           <div className="tile-content">{name}</div>
