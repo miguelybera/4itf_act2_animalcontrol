@@ -35,3 +35,7 @@
 .avatar-tile-icon{
     opacity: 1.0;
 }
+.divider[data-content]::after, .divider-vert[data-content]::after {
+    color: black;
+    font-weight: bolder;
+}
