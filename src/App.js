@@ -11,7 +11,7 @@ import './index.css';
 import './App.css'
 
 
-const gameDuration = 1000 * 10000; // 60 second clock
+const gameDuration = 60 * 1000; // 60 second clock
 
 const initialState = {
   farm: animals,
